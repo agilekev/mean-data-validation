@@ -1,0 +1,362 @@
+swagger: "2.0"
+info:
+  description: |
+    Dingo DX Property Exchange API - Specification.
+    Data Exchange for Commercial Properties.
+    This version edited by Kevin.
+    
+  version: "0.1"
+  title: Dingo DX Property Exchange API
+
+paths:
+  /property/{property-ref-id}:
+    post:
+      summary: Add a new property to the exchange
+      description: "Add a new property to the exchange with the provided details. Raises exception if the property already exists or if the validation fails"
+      operationId: addProperty
+      parameters:
+        - name: property-ref-id
+          in: path
+          description: Internal property identifier of the member
+          required: true
+          type: string
+        - name: api-key
+          in: query
+          description: API Key of the member
+          required: true
+          type: string
+        - name: user-id
+          in: query
+          description: Login user identifier
+          required: true
+          type: string
+        - name: property-info
+          in: body
+          description: Information related to the property to be added to the exchange
+          schema:
+            $ref: "#/definitions/Property"
+      responses:
+        "405":
+          description: Property validation failed
+        "409":
+          description: Property already exist
+
+    put:
+      summary: Update an existing property
+      description: "Update the property with the details provided. Raises exception if the property is not found or if the validation fails."
+      operationId: updateProperty
+      parameters:
+        - name: property-ref-id
+          in: path
+          description: Internal property identifier of the member
+          required: true
+          type: string
+        - name: api-key
+          in: query
+          description: API Key of the member
+          required: true
+          type: string
+        - name: user-id
+          in: query
+          description: Login user identifier
+          required: true
+          type: string
+        - name: property-info
+          in: body
+          description: Information related to the property to be added to the exchange
+          schema:
+            $ref: "#/definitions/Property"
+      responses:
+        "405":
+          description: Validation exception
+        "404":
+          description: Property not found
+
+    get:
+      summary: Find property by Reference ID
+      description: ""
+      operationId: getPropertyByRefId
+      parameters:
+        - name: property-ref-id
+          in: path
+          description: Internal property identifier of the member
+          required: true
+          type: string
+        - name: api-key
+          in: query
+          description: API Key of the member
+          required: true
+          type: string
+        - name: user-id
+          in: query
+          description: Login user identifier
+          required: true
+          type: string
+      responses:
+        "404":
+          description: Property not found
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/Property"
+
+definitions:
+  Property:
+    type: object
+    required:
+      - property-ref-id
+      - property-address
+      - property-details
+    properties:
+      property-ref-id:
+        type: string
+        description: "Internal property identifier of the member"
+        example: "ds-123454-2"
+      property-address:
+        $ref: "#/definitions/Property-Address"
+        description: "Property address details"
+      property-details:
+        $ref: "#/definitions/Property-Details"
+        description: "Property descriptive details"
+      property-media-list:
+        $ref: "#/definitions/Property-Media-List"
+        description: "Media content related to the property"
+      property-deal-info:
+        $ref: "#/definitions/Property-Deal-Info"
+        description: "Property deal details"
+      property-parties:
+        $ref: "#/definitions/Property-Parties"
+        description: "Parties involved as part of the listing or deal"
+    
+
+  Property-Address:
+    type: object
+    description: "Property address details"
+    required:
+      - name-or-number
+      - town
+      - full-postcode
+    properties:
+      floor-level:
+        type: string
+        description: Floor level or sub building property address
+        example: "Level 5"
+      name-or-number:
+        type: string
+        description: Building name or number
+        example: "138"
+      street-name:
+        type: string
+        description: Street name
+        example: "Oxford Street"
+      locality:
+        type: string
+        description: Locality, Thoroughfair or Locality Alias
+        example: "Westminster"
+      town:
+        type: string
+        description: Postal Town
+        example: "London"
+      full-postcode:
+        type: string
+        description: Full postcode of the property including inner and outer codes
+        example: "SW1A 1AA"
+      uprn:
+        type: integer
+        description: Unique Property Reference Number of the property, if available
+        example: 100081043509
+      udprn:
+        type: integer
+        description: Unique Delivery Property Reference Number of the property, if available
+        example: 25962203
+
+
+  Property-Details:
+    type: object
+    description: "Property descriptive details"
+    required:
+      - current-status
+      - property-type
+      - property-lease-type
+    properties:
+      current-status:
+        type: string
+        description: Current status of the property
+        enum: [ "Available", "Under Offer", "Withdrawn", "Sold", "Let" ]
+        example: "Available"
+      property-type:
+        type: string
+        description: Type of property
+        enum: [ "Retail", "Office", "Residential", "Land" ]
+        example: "Office"
+      floor-area:
+        type: integer
+        description: Total floor area in square feet
+        example: "12000"
+      property-lease-type:
+        type: string
+        description: Is property a leasehold or a freehold property
+        enum: [ "Leasehold", "Long Leasehold", "Freehold" ]
+        example: "Leasehold"
+      property-class:
+        type: string
+        description: The class order of the property
+        example: "Class A2"
+      property-description:
+        type: string
+        description: Detailed description of the property
+        example: 'No 1 Capitla Quarter was completed in 2014 and comprises a 77,992 sq ft, nine storey, high specification, Grade A office building.  The building offers open plan flexible floor plates, ensuring the building could be single or multi let, plus an impressive ground floor reception.'
+      property-location-description:
+        type: string
+        description: Detailed description about the location of the property
+        example: "Cardiff is the capital city of Wales and has a population of over 300,000, with a further 1.2 million within a 45 minute travel time of the city centre.  The city is strategically located approximately 150 miles west of London, 106 miles south west of Birmingham and 43 miles west of Bristol."
+      property-facilities:
+        type: array
+        items: {
+          type: string
+        }
+        description: Features of the property as individual points
+        example: [
+          "Air conditioning - 4 pipe fan coil",
+          "Raised access flooring", 
+          "Shower facility"
+        ]
+  
+  Property-Media-Content:
+    type: object
+    required:
+      - media-type
+      - media-format
+      - media-content
+    properties:
+      media-id:
+        type: string
+        description: Internal identifier of the media
+      media-name:
+        type: string
+        description: Title name of the media
+      media-order-no:
+        type: integer
+        description: The sort order for the media
+      media-type:
+        type: string
+        description: Type of media
+        enum: [ "Photo", "Floor Plan", "Map", "Brochure", "Virtual-Tour" ]
+      media-format:
+        type: string
+        description: Media content format. Example JPEG, PDF, URL ...
+      media-content:
+        type: string
+        description: Base64 encoded media content
+  
+  Property-Media-List:
+    type: object
+    description: "Media content related to the property"
+    properties:
+      media:
+        type: array
+        items: {
+          $ref: "#/definitions/Property-Media-Content"
+        }
+        description: List of all the media contents related to the property
+  
+  Property-Deal-Info:
+    type: object
+    description: "Deal information related to property"
+    properties:
+      deal-date:
+        type: string
+        format: date
+        description: The date the deal was completed
+        example: "2016-05-01"
+      deal-type:
+        type: string
+        description: Type of transaction deal
+        enum: ["Leasehold", "Long Leasehold", "Freehold", "Sub Lease"]
+        example: "Leashold"
+      deal-term:
+        type: string
+        description: Term of the deal in months and years
+        example: "10 Years"
+      rent-total-pa:
+        type: number
+        format: float
+        description: Total yearly rent for the property in GBP
+        example: 45000.00
+      rent-per-sqft:
+        type: number
+        format: float
+        description: Rent per square feet in GBP
+        example: 55.00
+      estate-charge-sqft:
+        type: number
+        format: float
+        description: Estate charge per square feet in GBP
+        example: 20.00
+      service-charge-sqft:
+        type: number
+        format: float
+        description: Service charge per square feet in GBP
+        example: 12.00
+      sale-price:
+        type: number
+        format: float
+        description: Sale price of property
+      sale-price-sqft:
+        type: number
+        format: float
+        description: Sale Price per sq-ft
+      deal-special-terms:
+        type: string
+        description: Special terms agreed on the deal
+        example: "Discounted 6 months"
+      deal-expiry-date:
+        type: string
+        format: date
+        description: The date the lease expires
+        example: "2026-05-01"
+      rent-review-date:
+        type: string
+        format: date
+        description: The date the rent will be reviwed
+        example: "2021-05-01"
+      
+  Property-Parties:
+    type: object
+    description: Parties involved with the property
+    properties:
+      landlord-name:
+        type: string
+        description: Name of the landlord and contact details
+        example: "Panama Investments"
+      landlords-agent:
+        type: string
+        description: Name and contact details of the agent acting on behalf of the landlord
+        example: "AgentX - David King - Chelsea Office - 02085654444"
+      tenant-name:
+        type: string
+        description: Name of the tenant and contact details
+        example: "Tesco Metro"
+      tenants-agent:
+        type: string
+        description: Name and contact details of the agent acting on behalf of the tenant
+        example: "AgentY - Richard Good - Wandsworth - 07866554422"
+      vendor-name:
+        type: string
+        description: Name of the vendor and contact details
+        example: " "
+      vendors-agent:
+        type: string
+        description: Name and contact details of the agent acting on behalf of the vendor
+        example: " "
+      developer-name:
+        type: string
+        description: Name of the developer and contact details
+        example: " "
+      developers-agent:
+        type: string
+        description: Name and contact details of the agent acting on behalf of the developer
+        example: " "
+      
+
+

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- xmlns to facilitate ployglot markup, polyglot includes: html,xml,schema.org -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8"></meta>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content=""></meta>
+  <meta name="author" content=""></meta>
+
+  <title>DingoDX Executable Data Specification</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="stylesheets/bootstrap.min.css" rel="stylesheet"></link>
+  <!-- Bootstrap theme -->
+  <link href="stylesheets/bootstrap-theme.min.css" rel="stylesheet"></link>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet"></link>
+
+  <!-- Custom styles for this template -->
+  <link href="stylesheets/theme.css" rel="stylesheet"></link>
+
+
+  <!--[if lt IE 9]><script src="javascripts/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="javascripts/ie-emulation-modes-warning.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body role="document">
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/">HTML5 + RDFa Lite 1.1</a></li>
+        <li><a href="json/shard.json" target="_blank">JSON-LD</a></li>
+        <li><a href="yaml/DingoDX.yaml" target="_blank">YAML</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+
+<div class="container theme-showcase" role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <h1>DingoDX Executable Data Specification</h1>
+    <p>This describes the executable specification for the DingoDX data definition and is intended to provide an implementation example of this data definition being executed in a working web application.</p>
+  </div>
+  <div class="page-header">
+    <h1>Example data based upon '<%= propertydata.name %>' in London</h1>
+  </div>
+  <div class="list-group" vocab="http://schema.org/" typeof="Place">
+    <div class="list-group-item active">
+      <h4 class="list-group-item-heading">Primary Property Information</h4>
+      <p class="list-group-item-text">This is the main property information record to include unique property identifiers and high level descriptive information.</p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Property UUID</h4>
+      <p class="list-group-item-text"><%= propertydata.propertyuuid %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Date Property Created</h4>
+      <p class="list-group-item-text"><%= propertydata.datepropertycreated %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Version UUID</h4>
+      <p class="list-group-item-text"><%= propertydata.versionuuid %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Date Version Created</h4>
+      <p class="list-group-item-text"><%= propertydata.dateversioncreated %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Name</h4>
+      <p class="list-group-item-text" property="name"><%= propertydata.name %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Description</h4>
+      <p class="list-group-item-text" property="description"><%= propertydata.description %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Image</h4>
+      <p class="list-group-item-text">
+        <img class='img-responsive' property="image" src='<%= propertydata.image %>'></img>
+      </p>
+    </div>
+    <div class="list-group-item" property="geo.GeoCoordinates">
+      <h4 class="list-group-item-heading">Geolocation</h4>
+      <p class="list-group-item-text">
+        <span>Latitude: </span><span property="latitude" ><%= propertydata.geo.latitude %></span>
+      </p>
+      <p class="list-group-item-text">
+        <span>Longitude: </span><span property="longitude" ><%= propertydata.geo.longitude %></span>
+      </p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Google Place Identifier</h4>
+      <p class="list-group-item-text"><%= propertydata.googleplaceid %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Map</h4>
+      <p class="list-group-item-text">
+      <div class='embed-responsive embed-responsive-16by9'>
+        <iframe class='embed-responsive-item' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCoIvv_QLGX9JtZUzkH-6XMv5XMrGtsfa0&q=place_id:<%= propertydata.googleplaceid %>' allowfullscreen></iframe>
+      </div>
+      </p>
+    </div>
+  </div>
+  <div class="list-group" vocab="http://schema.org/" typeof="Person">
+    <div class="list-group-item active">
+      <h4 class="list-group-item-heading">Contributor Information</h4>
+      <p class="list-group-item-text">This contributor record which describes information relating to the individual who contributed this version to the data exchange.</p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Contributor UUID</h4>
+      <p class="list-group-item-text"><%= propertydata.contributor.contributoruuid %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Given Name</h4>
+      <p class="list-group-item-text" property="givenName"><%= propertydata.contributor.givenName %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Family Name</h4>
+      <p class="list-group-item-text" property="familyName"><%= propertydata.contributor.familyName %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Image</h4>
+      <p class="list-group-item-text">
+        <img class='img-thumbnai' width='200' height='200' property="image" src='<%= propertydata.contributor.image %>'></img>
+      </p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Email</h4>
+      <p class="list-group-item-text" property="email"><%= propertydata.contributor.email %></p>
+    </div>
+  </div>
+
+  <div class="list-group" vocab="http://schema.org/" typeof="Organization">
+    <div class="list-group-item active">
+      <h4 class="list-group-item-heading">Contributor Organization</h4>
+      <p class="list-group-item-text">Details of the organization to which this contributor belongs.</p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Organization UUID</h4>
+      <p class="list-group-item-text"><%= propertydata.contributor.memberOf.organizationuuid %></p>
+    </div>
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading">Legal Name</h4>
+      <p class="list-group-item-text" property="legalName"><%= propertydata.contributor.memberOf.legalName %></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+<script src="javascripts/bootstrap.min.js"></script>
+<script src="javascripts/docs.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="javascripts/ie10-viewport-bug-workaround.js"></script>
+
+
+</div> <!-- /container -->
+
+
+</body>
+</html>

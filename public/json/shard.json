@@ -1,0 +1,112 @@
+{
+  "@context": {
+    "name": {
+      "@id": "http://schema.org/name",
+      "@public_availability": "Google, Land Registry, CoStar, Estates Gazette",
+      "@type": "xsd:string"
+    },
+    "propertyuuid": {
+      "@public_availability": "DingoDX",
+      "@type": "xsd:string"
+    },
+    "datepropertycreated": {
+      "@public_availability": "DingoDX",
+      "@type": "xsd:datetime"
+    },
+    "versionuuid": {
+      "@public_availability": "DingoDX",
+      "@type": "xsd:string"
+    },
+    "dateversioncreated": {
+      "@public_availability": "DingoDX",
+      "@type": "xsd:datetime"
+    },
+    "googleplaceid": {
+      "@public_availability": "Google",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "http://schema.org/description",
+      "@public_availability": "Google, Land Registry, CoStar, Estates Gazette",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "http://schema.org/image",
+      "@public_availability": "Google, Land Registry, CoStar, Estates Gazette, LinkedIn, DingoDX",
+      "@type": "@id"
+    },
+    "geo": {
+      "@id": "http://schema.org/geo",
+      "@public_availability": "Google, Land Registry, CoStar, Estates Gazette"
+    },
+    "latitude": {
+      "@id": "http://schema.org/latitude",
+      "@public_availability": "Google, Land Registry, CoStar, Estates Gazette",
+      "@type": "xsd:float"
+    },
+    "longitude": {
+      "@id": "http://schema.org/longitude",
+      "@public_availability": "Google, Land Registry, CoStar, Estates Gazette",
+      "@type": "xsd:float"
+    },
+    "contributor": {
+      "@id": "http://schema.org/person",
+      "@public_availability": "DingoDX, Google, LinkedIn, Facebook"
+    },
+    "email": {
+      "@id": "http://schema.org/email",
+      "@public_availability": "DingoDX, Google, LinkedIn, Facebook",
+      "@type": "xsd:string"
+    },
+    "givenName": {
+      "@id": "http://schema.org/givenName",
+      "@public_availability": "DingoDX, Google, LinkedIn, Facebook",
+      "@type": "xsd:string"
+    },
+    "familyName": {
+      "@id": "http://schema.org/familyName",
+      "@public_availability": "DingoDX, Google, LinkedIn, Facebook",
+      "@type": "xsd:string"
+    },
+    "organization": {
+      "@id": "http://schema.org/Organization",
+      "@public_availability": "LinkedIn"
+    },
+    "legalName": {
+      "@id": "http://schema.org/legalName",
+      "@public_availability": "LinkedIn",
+      "@type": "xsd:string"
+    },
+    "contributoruuid": {
+      "@public_availability": "DingoDX",
+      "@type": "xsd:string"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+
+
+  "name": "The Shard",
+  "propertyuuid": "03b506e5-9b2a-49f0-95b7-5754868e4c60",
+  "datepropertycreated": "2016-06-10T17:22:13+00:00",
+  "versionuuid": "03b506e5-9b2a-49f0-95b7-5754868e4c60",
+  "dateversioncreated": "2016-06-10T17:22:13+00:00",
+  "googleplaceid": "ChIJ-42Un1ADdkgRyHifv_4CZBw",
+  "description": "The Shard is home to some of the best offices, restaurants and hotel rooms in London - along with breathtaking views. Also referred to as the Shard of Glass, Shard London Bridge and formerly London Bridge Tower. The Shard is a 95-storey skyscraper in Southwark, London, that forms part of the London Bridge Quarter development. ",
+  "image": "http://teighmore-assets.s3.amazonaws.com/media/filer_public_thumbnails/filer_public/c2/be/c2becbbe-2c88-433e-a22c-1019a1fa574b/gf_lonodn_skyline_002.jpg__880x0_q80_crop_subsampling-2_upscale.jpg",
+  "geo": {
+    "latitude": "51.5045",
+    "longitude": "-0.0865"
+  },
+  "contributor": {
+    "contributoruuid": "05cd0b6e-6e62-4439-83c5-4671ef383624",
+    "email": "kevin@nottinghill.digital",
+    "givenName": "Kevin",
+    "familyName": "Ryan",
+    "image": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/005/046/0e8/24e86d2.jpg",
+    "memberOf": {
+
+      "organizationuuid": "4b71d81e-79dc-4608-942c-ef04cf3ccdf7",
+      "legalName": "Notting Hill Digital LTD"
+    }
+  }
+}
