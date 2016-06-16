@@ -1,4 +1,4 @@
-var propertyData = require('../models/property');
+var propertyData = require('./models/property');
 var express = require('express');
 var router = express.Router();
 

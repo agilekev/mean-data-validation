@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="710ba019-b7b6-433d-9093-a0a84e3883b8" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/db.js" afterPath="$PROJECT_DIR$/models/property.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/models/connectedMongoose.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/models/property.js" afterPath="$PROJECT_DIR$/routes/models/property.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/example_properties.js" afterPath="$PROJECT_DIR$/routes/example_properties.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/example_properties.ejs" afterPath="$PROJECT_DIR$/views/example_properties.ejs" />
     </list>
     <ignored path="mean-data-validation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,10 +30,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="property.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/property.js">
+        <entry file="file://$PROJECT_DIR$/routes/models/property.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.3962264">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#42#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connectedMongoose.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/models/connectedMongoose.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
               </folding>
@@ -124,6 +135,10 @@
         <option value="$PROJECT_DIR$/testing_canget_data.js" />
         <option value="$PROJECT_DIR$/views/example_properties.ejs" />
         <option value="$PROJECT_DIR$/routes/example_properties.js" />
+        <option value="$PROJECT_DIR$/routes/models/db.js" />
+        <option value="$PROJECT_DIR$/routes/models/mongo_connection.js" />
+        <option value="$PROJECT_DIR$/routes/models/mongoConnection.js" />
+        <option value="$PROJECT_DIR$/routes/models/property.js" />
       </list>
     </option>
   </component>
@@ -204,6 +219,7 @@
       <recent name="$PROJECT_DIR$/public/stylesheets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routes" />
       <recent name="$PROJECT_DIR$/models" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/public" />
@@ -303,7 +319,13 @@
       <option name="project" value="LOCAL" />
       <updated>1466084874702</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first list from mongodb onto example_properties view">
+      <created>1466090423633</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1466090423633</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -343,7 +365,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first mongo connection but bit of a hack :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="first mongo connection but bit of a hack :)" />
+    <MESSAGE value="first list from mongodb onto example_properties view" />
+    <option name="LAST_COMMIT_MESSAGE" value="first list from mongodb onto example_properties view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -452,10 +475,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/property.js">
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/example_properties.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_canget_data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
           </folding>
@@ -472,29 +511,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_canget_data.js">
+    <entry file="file://$PROJECT_DIR$/routes/models/connectedMongoose.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
+    <entry file="file://$PROJECT_DIR$/routes/models/property.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/example_properties.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          <folding />
+        <state vertical-scroll-proportion="-3.3962264">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
