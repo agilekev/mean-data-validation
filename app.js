@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var example_properties = require('./routes/example_properties');
+var data_validation_list = require('./routes/data_validation_list');
 
 var app = express();
 
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/example_properties', example_properties);
+app.use('/data_validation_list', data_validation_list);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
