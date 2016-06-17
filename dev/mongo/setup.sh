@@ -5,7 +5,7 @@
 use dingodx
 
 #step2 - need to add at least one record to create db
-db.properties.insert({name : 'The Shard', propertyuuid : '03b506e5-9b2a-49f0-95b7-5754868e4c60', "datepropertycreated": "2016-06-10T17:22:13+00:00", "versionuuid": "03b506e5-9b2a-49f0-95b7-5754868e4c60", "dateversioncreated": "2016-06-10T17:22:13+00:00", "googleplaceid": "ChIJ-42Un1ADdkgRyHifv_4CZBw", "description": "The Shard is home to some of the best offices, restaurants and hotel rooms in London - along with breathtaking views. Also referred to as the Shard of Glass, Shard London Bridge and formerly London Bridge Tower. The Shard is a 95-storey skyscraper in Southwark, London, that forms part of the London Bridge Quarter development. ", "image": "http://teighmore-assets.s3.amazonaws.com/media/filer_public_thumbnails/filer_public/c2/be/c2becbbe-2c88-433e-a22c-1019a1fa574b/gf_lonodn_skyline_002.jpg__880x0_q80_crop_subsampling-2_upscale.jpg", "geo": { "latitude": "51.5045", "longitude": "-0.0865" }})
+db.properties.insert({"name": "20 Fenchurch Street", "propertyuuid" : "b2d11163-ba03-41ba-bf0a-2aa91977bfd5", "datepropertycreated": "2016-06-17T14:30:00+00:00", "versionuuid": "b2d11163-ba03-41ba-bf0a-2aa91977bfd5", "dateversioncreated": "2016-06-17T14:30:00+00:00", "googleplaceid": "ChIJRYc4aFIDdkgRMIJ5usWqOhg", "description": "20 Fenchurch Street is a commercial skyscraper in London that takes its name from its address on Fenchurch Street, in the historic City of London financial district. It has been nicknamed 'The Walkie-Talkie' because of its distinctive shape.", "image": "http://www.20fenchurchstreet.co.uk/images/gallery/2.jpg", "geo": { "latitude": "51.511091", "longitude": "-0.083468" }})
 db.properties.insert({ "name": "4 Brindley Place", "propertyuuid" : "8bb96810-3e5a-42da-a47f-c85a58eff657", "datepropertycreated": "2016-06-17T10:53:55+00:00", "versionuuid": "8bb96810-3e5a-42da-a47f-c85a58eff657", "dateversioncreated": "2016-06-17T10:53:55+00:00", "googleplaceid": "ChIJRf1nxfa8cEgR541Lm0RBKMc", "description": "The seven storey building has a dramatic full height foyer and glazed roof for natural light. The atrium has bridges and glass fronted lifts to bring movement and animation to the space. Flexible floorplates and services were designed so that floors can be let as open plan space, or as cellular offices, and can be easily subdivided into smaller tenancy units.", "image": "http://www.brindleyplace.com/wp-content/uploads/Four-Brindleyplace.jpg", "geo": { "latitude": "52.478290", "longitude": "-1.914100" }})
 db.properties.insert({ "name": "Pinnacle", "propertyuuid" : "2016-06-17T10:53:55+00:00", "datepropertycreated": "3fa4bd08-b174-43b9-bd7c-f87425124e98", "versionuuid": "2016-06-17T10:53:55+00:00", "dateversioncreated": "3fa4bd08-b174-43b9-bd7c-f87425124e98", "googleplaceid": "ChIJ0UHCax5ceUgRtMiY72VLv1Y",
 "description": "Pinnacle (formerly West Riding House) is an 80-metre (260 ft) and 20 storey tall office building in Leeds, West Yorkshire, England, which was completed in 1973. It was the tallest building in the city until 2005 with the topping out of Bridgewater Place. There are retail units on the ground floor of the building as it is located in the centre of the shopping district of the city. It was internally renovated in the early 2000s followed by a refurbishment of the lower floor retail space. Leeds City Council were originally the main tenants in the building but have since vacated their offices there. The building has a small multi-storey car park off Basinghall. Until the 2000s the building stood out on the Leeds skyline. The construction of taller buildings (including ones on higher ground than Pinnacle) have lessened its prominence.", "image": "http://www.pinnacleleeds.co.uk/img/home/carousel-home-1-new.jpg", "geo": { "latitude": "53.7989", "longitude": "-1.5453" }})
@@ -34,3 +34,35 @@ db.dropDatabase()
 
 
 
+#useful snippets
+
+#UK cities ordered by population
+London - 7,074,265
+Birmingham - 1,020,589
+Leeds - 726,939
+Glasgow - 616,430
+Sheffield - 530,375
+Bradford - 483,422
+Liverpool - 467,995
+Edinburgh - 448,850
+Manchester - 430,818
+Bristol - 399,633
+
+#property insert template
+db.properties.insert({
+"name": "x",
+"propertyuuid" : "x",
+"datepropertycreated": "2016-06-17T14:30:00+00:00",
+"versionuuid": "x",
+"dateversioncreated": "2016-06-17T14:30:00+00:00",
+"googleplaceid": "x",
+"description": "x",
+"image": "x",
+"geo": { "latitude": "x", "longitude": "x" }})
+
+
+#links for data generation
+https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder
+http://www.timestampgenerator.com/
+https://www.uuidgenerator.net/
+http://www.latlong.net/
